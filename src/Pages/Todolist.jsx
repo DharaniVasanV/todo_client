@@ -18,7 +18,7 @@ const Todolist = () => {
   //add data to database
   const postTodo=async()=>{
     try{
-       await axios.post('http://localhost:5000/csbs/addtodo', {todo}).then(
+       await axios.post('https://todo-server-ec2-k78z.onrender.com/addtodo', {todo}).then(
         (response)=>{console.log(response);
         });
        setTodo('') 
@@ -32,7 +32,7 @@ const Todolist = () => {
   }
   const getTodo=async()=>{
     try{
-      await axios.get('http://localhost:5000/csbs/gettodo').then(
+      await axios.get('https://todo-server-ec2-k78z.onrender.com/gettodo').then(
         (response)=>{setTodoArray(response.data)}
       )
     }
@@ -42,7 +42,7 @@ const Todolist = () => {
   }
   const deleteTodo=async(id)=>{
     try{
-      await axios.delete(`http://localhost:5000/csbs/deletetodo/${id}`).then(
+      await axios.delete(`https://todo-server-ec2-k78z.onrender.com/deletetodo/${id}`).then(
         (response)=>{console.log(response)}
       )
       getTodo()
@@ -63,7 +63,7 @@ const Todolist = () => {
   
   const updateTodo=async(id)=>{
     try{
-      await axios.put(`http://localhost:5000/csbs/updatetodo/${id}`,{todo:editText})
+      await axios.put(`https://todo-server-ec2-k78z.onrender.com/updatetodo/${id}`,{todo:editText})
       setEditId(null)
       setEditText('')
       getTodo()
